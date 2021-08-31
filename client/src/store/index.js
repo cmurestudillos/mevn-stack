@@ -1,6 +1,5 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import router from '../router/index.js';
 // Peticiones HTTP
 import clienteAxios from '../config/axios';
 
@@ -13,19 +12,19 @@ export default new Vuex.Store({
   mutations: {
     setUsuarios(state, payload) {
       state.usuarios = payload
-    },   
+    },  
   },
   actions: {
     listarUsuarios({commit}, payload){
       clienteAxios.get('/api/usuarios')
         .then(res => {
-          //console.log(res.data.results);
-          commit('setUsuarios', res.data.results)
+          let arrayDatos = res.data.data; 
+          commit('setUsuarios', arrayDatos)
         })
         .catch(e => {
           console.log(e.response);
         })
-    }    
+    },  
   },
   modules: {
   }
