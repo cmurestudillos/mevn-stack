@@ -6,7 +6,26 @@ const usuarioController = require('../controllers/usuarioController');
 
 // Obtener todos los usuarios
 router.get('/', 
-    usuarioController.obtenerUsuarios
+    usuarioController.getUsuarios
 )
+
+// Obtener usuario por ID
+router.get('/:id', 
+    usuarioController.getUsuariosbyId
+)
+// Crear un usuario
+/* router.post('/', 
+    usuarioController.agregarUsuario
+); */
+
+// Actualizar usuario via ID
+/* router.put('/:id', 
+    usuarioController.actualizarUsuario
+); */
+
+// Eliminar un Usuario
+/* router.delete('/:id', 
+    usuarioController.eliminarUsuario
+); */
 
 module.exports = router;
