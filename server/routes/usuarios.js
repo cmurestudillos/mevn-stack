@@ -14,9 +14,9 @@ router.get('/:id',
     usuarioController.getUsuariosbyId
 )
 // Crear un usuario
-// router.post('/', 
-//     usuarioController.agregarUsuario
-// );
+router.post('/', 
+    usuarioController.agregarUsuario
+);
 
 // Actualizar usuario via ID
 // router.put('/:id', 
