@@ -7,8 +7,13 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'Home',
+    name: 'home',
     component: Home
+  },
+  {
+    path: '/agregar',
+    name: 'agregar',
+    component: () => import('../views/Agregar.vue')
   }
 ]
 

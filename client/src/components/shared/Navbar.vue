@@ -25,8 +25,4 @@
 #nav{
   background-color: #41b783;
 }
-
-#nav a {
-  padding: 0.3em;
-}
 </style>
