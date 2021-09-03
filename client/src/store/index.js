@@ -13,6 +13,9 @@ export default new Vuex.Store({
     setUsuarios(state, payload) {
       state.usuarios = payload
     },  
+    eliminar(state, payload) {
+      state.usuarios = state.usuarios.filter(item => item.id !== payload)
+    },    
   },
   actions: {
     listarUsuarios({commit}, payload){
@@ -25,6 +28,18 @@ export default new Vuex.Store({
           console.log(e.response);
         })
     },  
+    eliminarUsuario({ commit, state }, id) {
+      clienteAxios.delete(`/api/usuarios/${id}`)
+        .then(res => {
+          commit('eliminar', id)
+        })
+        .catch(e => {
+          console.log(e.response);
+        })      
+    },
+    setTarea({ commit }, id) {
+      commit('tarea', id)
+    },    
   },
   modules: {
   }

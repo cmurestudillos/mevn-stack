@@ -16,7 +16,7 @@
                                 <b-button block pill variant="outline-warning" size="lg">Modificar</b-button>
                             </b-col>
                             <b-col>
-                                <b-button block pill variant="outline-danger" size="lg">Eliminar</b-button>
+                                <b-button block pill variant="outline-danger" size="lg" @click="eliminarUsuario(usuarios[index].id)">Eliminar</b-button>
                             </b-col>                            
                         </b-row>
                     </b-card-body>
@@ -27,13 +27,14 @@
 </template>
 
 <script>
-import {mapState} from 'vuex';
+import {mapState, mapActions} from 'vuex';
 
 export default {
     computed: {
         ...mapState(['usuarios'])
     },
     methods: {
+        ...mapActions(['eliminarUsuario'])
     }
 }
 </script>
