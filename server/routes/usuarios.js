@@ -14,18 +14,18 @@ router.get('/:id',
     usuarioController.getUsuariosbyId
 )
 // Crear un usuario
-/* router.post('/', 
-    usuarioController.agregarUsuario
-); */
+// router.post('/', 
+//     usuarioController.agregarUsuario
+// );
 
 // Actualizar usuario via ID
-/* router.put('/:id', 
-    usuarioController.actualizarUsuario
-); */
+// router.put('/:id', 
+//     usuarioController.actualizarUsuario
+// );
 
 // Eliminar un Usuario
-/* router.delete('/:id', 
-    usuarioController.eliminarUsuario
-); */
+router.delete('/:id', 
+    usuarioController.eliminarUsuarios
+);
 
 module.exports = router;
