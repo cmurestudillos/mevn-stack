@@ -15,9 +15,18 @@ export default new Vuex.Store({
     setUsuarios(state, payload) {
       state.usuarios = payload
     },  
+    setUsuario(state, payload) {
+      state.usuario = payload
+    },      
     setNuevoUsuario(state, payload){
       state.usuarios.push(payload);
       router.push('/');
+    }, 
+    setActualizarUsuario(state, payload){
+      debugger
+      state.usuarios = state.usuarios.map(item => item.id === payload.id ? payload : item)
+      debugger
+      router.push('/')
     }, 
     eliminar(state, payload) {
       state.usuarios = state.usuarios.filter(item => item.id !== payload)
@@ -34,6 +43,16 @@ export default new Vuex.Store({
           console.log(e.response);
         })
     },  
+    obtenerUsuarioById({ commit, state }, id) {
+      clienteAxios.get(`/api/usuarios/${id}`)
+        .then(res => {
+          let arrayDatos = res.data.data; 
+          commit('setUsuario', arrayDatos)
+        })
+        .catch(e => {
+          console.log(e.response);
+        })      
+    },    
     agregarUsuario({commit}, usuario){
       clienteAxios.post('/api/usuarios', usuario)
         .then(res => {
@@ -42,7 +61,17 @@ export default new Vuex.Store({
         .catch(e => {
           console.log(e.response);
       })      
-    },    
+    },   
+    modificarUsuario({ commit, state }, usuario) {
+      let _id = usuario.id;
+      clienteAxios.put(`/api/usuarios/${_id}`, usuario)
+        .then(res => {
+          commit('setActualizarUsuario', usuario)
+        })
+        .catch(e => {
+          console.log(e.response);
+        })      
+    },     
     eliminarUsuario({ commit, state }, id) {
       clienteAxios.delete(`/api/usuarios/${id}`)
         .then(res => {
@@ -52,6 +81,9 @@ export default new Vuex.Store({
           console.log(e.response);
         })      
     },
+    cancelarAccion({ commit }) {
+      router.push('/');     
+    },    
   },
   modules: {
   }

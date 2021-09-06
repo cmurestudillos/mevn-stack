@@ -1,8 +1,8 @@
 <template>
     <div class="container">
-        <h1>Añadir nuevo usuario</h1>
+        <h1>Modificar usuario</h1>
         <hr>
-        <b-form @submit.prevent="agregarUsuario(usuario)" class="shadow p-3 mb-5 bg-white rounded">
+        <b-form @submit.prevent="modificarUsuario(usuario)" class="shadow p-3 mb-5 bg-white rounded">
           <b-row>
             <b-col>
               <label class="mr-sm-2" for="input-1"><strong>Email</strong></label>
@@ -27,18 +27,14 @@
 // Propiedades de Vuex
 import {mapActions, mapState} from 'vuex';
 export default {
-  data(){
-    return{
-      email: '',
-      first_name: '',
-      last_name: ''
-    }
-  },
-  methods:{
-    ...mapActions(['agregarUsuario', 'cancelarAccion']),
-  },
-  computed:{
-    ...mapState(['usuario'])
-  }
+    methods:{
+        ...mapActions(['obtenerUsuarioById', 'modificarUsuario', 'cancelarAccion']),
+    },
+    computed:{
+        ...mapState(['usuario'])
+    },
+    created(){
+        this.obtenerUsuarioById(this.$route.params.id)
+    }  
 }
 </script>

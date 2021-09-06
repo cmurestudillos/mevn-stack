@@ -14,7 +14,9 @@
                         </b-card-text>
                         <b-row>
                             <b-col>
-                                <b-button block pill variant="outline-warning" size="lg">Modificar</b-button>
+                                <router-link :to="{ name: 'editar', params: { id: usuarios[index].id } }">
+                                    <b-button block pill variant="outline-warning" size="lg">Modificar</b-button>
+                                </router-link>
                             </b-col>
                             <b-col>
                                 <b-button block pill variant="outline-danger" size="lg" @click="eliminarUsuario(usuarios[index].id)">Eliminar</b-button>
@@ -25,7 +27,7 @@
             </b-row>
         </b-card> 
         <router-link :to="{name: 'agregar'}">
-            <b-button block pill variant="outline-primary" size="lg" id="nuevo">A&ntilde;adir</b-button>
+            <b-button block pill variant="primary" size="lg" id="nuevo">A&ntilde;adir</b-button>
         </router-link>
         
     </div>
