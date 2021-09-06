@@ -14,8 +14,8 @@ exports.getUsuarios = async(req, res) => {
     }
 }
 
-// Listado de todos los usuarios
-exports.getUsuariosbyId = async(req, res) => {
+// Obtneer datos del usuario por ID
+exports.getUsuariobyId = async(req, res) => {
     try {
         // revisar el ID 
         let usuarioId = req.params.id;
@@ -48,7 +48,34 @@ exports.agregarUsuario = async(req, res) => {
         res.send(response.data)
     } catch (error) {
         console.log(error);
-        res.status(500).send('Ha ocurrido un error.');
+        res.status(500).send('Ha ocurrido un error al intentar crear el usuario.');
+    }
+}
+
+// Modificar usuario
+exports.actualizarUsuario = async(req, res) => {
+    // Revisar si hay errores
+    const errores = validationResult(req);
+    if( !errores.isEmpty() ) {
+        return res.status(400).json({errores: errores.array() })
+    }
+
+    try {
+        // Datos a actualizar del usuario
+        let payload = { 
+            email: req.body.email,
+            first_name: req.body.first_name,
+            last_name: req.body.last_name,
+        };
+
+        // revisar el ID 
+        let usuarioId = req.params.id;
+        // Peticion para actualizar el usuario
+        let response = await axios.put(`https://reqres.in/api/users/${usuarioId}`, payload)
+        res.send(response.data)
+    } catch (error) {
+        console.log(error);
+        res.status(500).send('Ha ocurrido un error al intentar modificar el usuario.');
     }
 }
 
