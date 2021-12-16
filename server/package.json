@@ -1,7 +1,7 @@
 {
-  "name": "randomuser",
-  "version": "1.0.4",
-  "description": "Ejemplo de MEVN usando la api \"https://randomuser.me/\"",
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Ejemplo de MEAN usando la api \"https://randomuser.me/\"",
   "main": "index.js",
   "scripts": {
     "start": "node .",
@@ -9,7 +9,7 @@
   },
   "keywords": [
     "node.js",
-    "randomuser.me.",
+    "server.me.",
     "vue.js",
     "mevn",
     "mongoDB",
