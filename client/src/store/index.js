@@ -3,6 +3,8 @@ import Vuex from 'vuex'
 import router from '../router/index';
 // Peticiones HTTP
 import clienteAxios from '../config/axios';
+// Ventana Modal
+import Swal from 'sweetalert2';
 
 Vue.use(Vuex)
 
@@ -21,16 +23,51 @@ export default new Vuex.Store({
     setNuevoUsuario(state, payload){
       state.usuarios.push(payload);
       router.push('/');
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Usuario añadido con exito.',
+        showConfirmButton: false,
+        timer: 1500
+      })
     }, 
     setActualizarUsuario(state, payload){
-      debugger
       state.usuarios = state.usuarios.map(item => item.id === payload.id ? payload : item)
-      debugger
-      router.push('/')
+      router.push('/');
+      Swal.fire({
+        position: 'top-end',
+        icon: 'success',
+        title: 'Usuario modificado con exito.',
+        showConfirmButton: false,
+        timer: 1500
+      })      
     }, 
     eliminar(state, payload) {
-      state.usuarios = state.usuarios.filter(item => item.id !== payload)
+      // Verificar que va a eliminar el registro
+      Swal.fire({
+        title: '¿Esta seguro de querer eliminar el registro?',
+        showCancelButton: true,
+        confirmButtonText: 'Confirmar',
+        confirmButtonColor: '#198757',
+        cancelButtonText: 'Cancelar',
+        cancelButtonColor: '#db3448',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          state.usuarios = state.usuarios.filter(item => item.id !== payload)
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Usuario eliminado con exito.',
+            showConfirmButton: false,
+            timer: 1500
+          })          
+        }
+      })       
     },    
+    inicializarFormulario(state, payload) {
+      debugger
+      state.usuario = payload
+    },   
   },
   actions: {
     listarUsuarios({commit}, payload){
@@ -83,7 +120,11 @@ export default new Vuex.Store({
     },
     cancelarAccion({ commit }) {
       router.push('/');     
-    },    
+    },
+    inicializarFormulario({ commit, state }) {
+      debugger
+      commit('resetUsuario', state)
+    },         
   },
   modules: {
   }

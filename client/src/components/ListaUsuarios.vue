@@ -1,5 +1,5 @@
 <template>
-    <div class="text-center">
+    <div>
         <b-card no-body class="overflow-hidden tarjeta" v-for="(item, index) in usuarios" :key="item.id.value" border-variant="success">
             <b-row no-gutters>
                 <b-col md="4">
@@ -26,10 +26,6 @@
                 </b-col>
             </b-row>
         </b-card> 
-        <router-link :to="{name: 'agregar'}">
-            <b-button block pill variant="primary" size="lg" id="nuevo">A&ntilde;adir</b-button>
-        </router-link>
-        
     </div>
 </template>
 
@@ -62,21 +58,5 @@ export default {
     }    
     .cuerpo-tarjeta{
         text-align: left;
-    }
-
-    #nuevo {
-        position:fixed;
-        bottom:8%;
-        right:0px;        
-        padding: 1em;
-        text-decoration: none;
-    }
-    #nuevo:hover {
-        background: rgba(135, 206, 235, 0.8);
-        color: blue;
-        cursor: pointer;
-    }
-    #nuevo {
-        right: 10px;
     }
 </style>

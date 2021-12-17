@@ -24,7 +24,7 @@ export default {
 </script>
 
 <style scoped>
-footer{
-  background-color: #41b783;
-}
+    footer{
+        background: linear-gradient( 90deg,#000,#37d843 100%,#00d4ff 0 );
+    }
 </style>

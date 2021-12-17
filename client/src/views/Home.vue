@@ -1,7 +1,5 @@
 <template>
-  <div class="container mx-auto">
-    <ListaUsuarios />
-  </div>
+    <ListaUsuarios class="container mx-auto margin-b text-center" />
 </template>
 
 <script>
@@ -18,3 +16,9 @@ export default {
   }
 }
 </script>
+
+<style>
+  .margin-b {
+    margin-bottom: 5rem;;
+  }
+</style>
