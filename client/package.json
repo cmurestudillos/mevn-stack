@@ -1,5 +1,5 @@
 {
-  "name": "client",
+  "name": "mevn-stack-frontend",
   "version": "1.0.6",
   "private": true,
   "scripts": {

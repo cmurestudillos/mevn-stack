@@ -1,19 +1,12 @@
-# client
+<p align="center">
+  <a href="https://www.buymeacoffee.com/cmur" rel=”noopener noreferrer”><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=cmur&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
+</p>
 
-## Project setup
-```
-npm install
-```
+# MEVN Stack Frontend - Vue.js
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+CRUD MEVN stack usando la api \"https://randomuser.me/\"
 
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+## Para ejecutar esta aplicación:
+* Hay que tener instalado [npm](https://www.npmjs.com) y [node](https://nodejs.org/es/)
+* Siatuarse en el directorio ´client´ del proyecto e instalar las dependencias: `npm install`
+* Ejecutar el siguiente comando para arrancar la aplicación: `npm run serve`
