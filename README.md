@@ -10,4 +10,4 @@ CRUD  utilizando la metodologia MEVN y usando de backend la api \"https://random
 * Clonar el repositorio: 'https://github.com/cmurestudillos/mevn-stack.git'
 * Hay que tener instalado [npm](https://www.npmjs.com) y [node](https://nodejs.org/es/)
 * Siatuarse en el directorio ´server´ y ´client´ del proyecto e instalar las dependencias: `npm install`
-* Ejecutar el siguiente comando para arrancar la aplicación en ´client´: `ng serve -o` y `npm start` en ´server´.
+* Ejecutar el siguiente comando para arrancar la aplicación en ´client´: `npm run serve` y `npm start` en ´server´.
