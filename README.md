@@ -2,7 +2,7 @@
   <a href="https://www.buymeacoffee.com/cmur" rel=”noopener noreferrer”><img src="https://img.buymeacoffee.com/button-api/?text=Buy me a coffee&emoji=&slug=cmur&button_colour=FFDD00&font_colour=000000&font_family=Cookie&outline_colour=000000&coffee_colour=ffffff"></a>
 </p>
 
-# MEAN Stack - Vue.js y Node.js
+# MEVN Stack - Vue.js y Node.js
 
 CRUD  utilizando la metodologia MEVN y usando de backend la api \"https://randomuser.me/\"
 
