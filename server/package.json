@@ -1,13 +1,17 @@
 {
-  "name": "mevn-stack-backend",
+  "name": "stack-api-randomuser-backend",
   "version": "1.0.0",
-  "author": "Carlos Mur (cmur_85)",
+  "author": "Carlos Mur",
   "license": "MIT",
-  "description": "Ejemplo de MEVN usando la api \"https://randomuser.me/\"",
+  "description": "Backend usando la api \"https://randomuser.me/\"",
   "main": "index.js",
   "scripts": {
     "start": "node .",
-    "dev": "nodemon ."
+    "dev": "npm run copy-env-dev",
+    "prd": "npm run copy-env-prd",
+    "copy-env-dev": "cp .env.development .env",
+    "copy-env-prd": "cp .env.production .env",
+    "deploy": "gcloud app deploy && gcloud app browse -s stack-api-randomuser"
   },
   "keywords": [
     "node.js",
